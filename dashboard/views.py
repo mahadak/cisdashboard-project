@@ -42,8 +42,8 @@ class CrossSignInAWS(View):
         # Step 1: Prompt user for target account ID and name of role to assume
         
         AWS_CREDS = {
-            "aws_access_key_id": "AKIAZJ4GRIEGEZ4FTPWW",
-            "aws_secret_access_key": "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"
+            "aws_access_key_id": "",
+            "aws_secret_access_key": ""
         }        
         
         # Step 2: Connect to AWS STS and then call AssumeRole. This returns 
@@ -81,8 +81,8 @@ class ScanConnectionView(View):
         uuid = request.POST.get('uuid')
         useraws = UserAWS.objects.get(uuid=uuid)
         AWS_CREDS = {
-            "aws_access_key_id": "AKIAZJ4GRIEGEZ4FTPWW",
-            "aws_secret_access_key": "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"
+            "aws_access_key_id": "",
+            "aws_secret_access_key": ""
         }        
         
         # Step 2: Connect to AWS STS and then call AssumeRole. This returns 
@@ -500,8 +500,8 @@ class IamPolicyGraphicalView(View):
         useraws = UserAWS.objects.get(uuid=uuid)
         print(useraws)
         AWS_CREDS = {
-            "aws_access_key_id": "AKIAZJ4GRIEGEZ4FTPWW",
-            "aws_secret_access_key": "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"
+            "aws_access_key_id": "",
+            "aws_secret_access_key": ""
         }        
         
         # Step 2: Connect to AWS STS and then call AssumeRole. This returns 
