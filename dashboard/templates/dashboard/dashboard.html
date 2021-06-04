@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+{% load static %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
+    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <title>Dashboard</title>
+    <!-- <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="../../../static/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../static/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/apexcharts.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/toastr.min.css">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/components.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/semi-dark-layout.css">
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../static/css/horizontal-menu.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/dashboard-ecommerce.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/chart-apex.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/ext-component-toastr.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../static/css/style.css">
+    <!-- END: Custom CSS-->
+
+</head>
+<!-- END: Head-->
+
+<!-- BEGIN: Body-->
+
+<body class="horizontal-layout horizontal-menu  navbar-floating footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="">
+
+    <!-- BEGIN: Header-->
+    <nav class="header-navbar navbar-expand-lg navbar navbar-fixed align-items-center navbar-shadow navbar-brand-center" data-nav="brand-center">
+        <div class="navbar-header d-xl-block d-none">
+            <ul class="nav navbar-nav">
+                <li class="nav-item"><a class="navbar-brand" href=#><span class="brand-logo">
+                            <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="24">
+                                <defs>
+                                    <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
+                                        <stop stop-color="#000000" offset="0%"></stop>
+                                        <stop stop-color="#FFFFFF" offset="100%"></stop>
+                                    </lineargradient>
+                                    <lineargradient id="linearGradient-2" x1="64.0437835%" y1="46.3276743%" x2="37.373316%" y2="100%">
+                                        <stop stop-color="#EEEEEE" stop-opacity="0" offset="0%"></stop>
+                                        <stop stop-color="#FFFFFF" offset="100%"></stop>
+                                    </lineargradient>
+                                </defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Artboard" transform="translate(-400.000000, -178.000000)">
+                                        <g id="Group" transform="translate(400.000000, 178.000000)">
+                                            <path class="text-primary" id="Path" d="M-5.68434189e-14,2.84217094e-14 L39.1816085,2.84217094e-14 L69.3453773,32.2519224 L101.428699,2.84217094e-14 L138.784583,2.84217094e-14 L138.784199,29.8015838 C137.958931,37.3510206 135.784352,42.5567762 132.260463,45.4188507 C128.736573,48.2809251 112.33867,64.5239941 83.0667527,94.1480575 L56.2750821,94.1480575 L6.71554594,44.4188507 C2.46876683,39.9813776 0.345377275,35.1089553 0.345377275,29.8015838 C0.345377275,24.4942122 0.230251516,14.560351 -5.68434189e-14,2.84217094e-14 Z" style="fill:currentColor"></path>
+                                            <path id="Path1" d="M69.3453773,32.2519224 L101.428699,1.42108547e-14 L138.784583,1.42108547e-14 L138.784199,29.8015838 C137.958931,37.3510206 135.784352,42.5567762 132.260463,45.4188507 C128.736573,48.2809251 112.33867,64.5239941 83.0667527,94.1480575 L56.2750821,94.1480575 L32.8435758,70.5039241 L69.3453773,32.2519224 Z" fill="url(#linearGradient-1)" opacity="0.2"></path>
+                                            <polygon id="Path-2" fill="#000000" opacity="0.049999997" points="69.3922914 32.4202615 32.8435758 70.5039241 54.0490008 16.1851325"></polygon>
+                                            <polygon id="Path-21" fill="#000000" opacity="0.099999994" points="69.3922914 32.4202615 32.8435758 70.5039241 58.3683556 20.7402338"></polygon>
+                                            <polygon id="Path-3" fill="url(#linearGradient-2)" opacity="0.099999994" points="101.428699 0 83.0667527 94.1480575 130.378721 47.0740288"></polygon>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg></span>
+                        <h2 class="brand-text mb-0">CIS Dashboard</h2>
+                    </a></li>
+            </ul>
+        </div>
+        <div class="navbar-container d-flex content">
+            <div class="bookmark-wrapper d-flex align-items-center">
+                <ul class="nav navbar-nav d-xl-none">
+                    <li class="nav-item"><a class="nav-link menu-toggle" href="javascript:void(0);"><i class="ficon" data-feather="menu"></i></a></li>
+                </ul>
+                <ul class="nav navbar-nav bookmark-icons">
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#" data-toggle="tooltip" data-placement="top" title="Email"><i class="ficon" data-feather="mail"></i></a></li>
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#" data-toggle="tooltip" data-placement="top" title="Chat"><i class="ficon" data-feather="message-square"></i></a></li>
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#" data-toggle="tooltip" data-placement="top" title="Calendar"><i class="ficon" data-feather="calendar"></i></a></li>
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#" data-toggle="tooltip" data-placement="top" title="Todo"><i class="ficon" data-feather="check-square"></i></a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link bookmark-star"><i class="ficon text-warning" data-feather="star"></i></a>
+                        <div class="bookmark-input search-input">
+                            <div class="bookmark-input-icon"><i data-feather="search"></i></div>
+                            <input class="form-control input" type="text" placeholder="Bookmark" tabindex="0" data-search="search">
+                            <ul class="search-list search-list-bookmark"></ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <ul class="nav navbar-nav align-items-center ml-auto">
+                <li class="nav-item dropdown dropdown-language"><a class="nav-link dropdown-toggle" id="dropdown-flag" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-us"></i><span class="selected-language">English</span></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-flag"><a class="dropdown-item" href="javascript:void(0);" data-language="en"><i class="flag-icon flag-icon-us"></i> English</a><a class="dropdown-item" href="javascript:void(0);" data-language="fr"><i class="flag-icon flag-icon-fr"></i> French</a><a class="dropdown-item" href="javascript:void(0);" data-language="de"><i class="flag-icon flag-icon-de"></i> German</a><a class="dropdown-item" href="javascript:void(0);" data-language="pt"><i class="flag-icon flag-icon-pt"></i> Portuguese</a></div>
+                </li>
+                <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder">{{name}}</span><span class="user-status">Admin</span></div><span class="avatar"><img class="round" src="../../../static/images/avatar-s-9.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-profile.html"><i class="mr-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href=#><i class="mr-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href=#><i class="mr-50" data-feather="check-square"></i> Task</a><a class="dropdown-item" href=#><i class="mr-50" data-feather="message-square"></i> Chats</a>
+                        <div class="dropdown-divider"></div><a class="dropdown-item" href="page-account-settings.html"><i class="mr-50" data-feather="settings"></i> Settings</a><a class="dropdown-item" href="page-pricing.html"><i class="mr-50" data-feather="credit-card"></i> Pricing</a><a class="dropdown-item" href=#><i class="mr-50" data-feather="help-circle"></i> FAQ</a><a class="dropdown-item" href="page-auth-login-v2.html"><i class="mr-50" data-feather="power"></i> Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- BEGIN: Main Menu-->
+    <div class="horizontal-menu-wrapper">
+        <div class="header-navbar navbar-expand-sm navbar navbar-horizontal floating-nav navbar-light navbar-shadow menu-border" role="navigation" data-menu="menu-wrapper" data-menu-type="floating-nav">
+            <div class="navbar-header">
+                <ul class="nav navbar-nav flex-row">
+                    <li class="nav-item mr-auto"><a class="navbar-brand" href=#><span class="brand-logo">
+                                <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="24">
+                                    <defs>
+                                        <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
+                                            <stop stop-color="#000000" offset="0%"></stop>
+                                            <stop stop-color="#FFFFFF" offset="100%"></stop>
+                                        </lineargradient>
+                                        <lineargradient id="linearGradient-2" x1="64.0437835%" y1="46.3276743%" x2="37.373316%" y2="100%">
+                                            <stop stop-color="#EEEEEE" stop-opacity="0" offset="0%"></stop>
+                                            <stop stop-color="#FFFFFF" offset="100%"></stop>
+                                        </lineargradient>
+                                    </defs>
+                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="Artboard" transform="translate(-400.000000, -178.000000)">
+                                            <g id="Group" transform="translate(400.000000, 178.000000)">
+                                                <path class="text-primary" id="Path" d="M-5.68434189e-14,2.84217094e-14 L39.1816085,2.84217094e-14 L69.3453773,32.2519224 L101.428699,2.84217094e-14 L138.784583,2.84217094e-14 L138.784199,29.8015838 C137.958931,37.3510206 135.784352,42.5567762 132.260463,45.4188507 C128.736573,48.2809251 112.33867,64.5239941 83.0667527,94.1480575 L56.2750821,94.1480575 L6.71554594,44.4188507 C2.46876683,39.9813776 0.345377275,35.1089553 0.345377275,29.8015838 C0.345377275,24.4942122 0.230251516,14.560351 -5.68434189e-14,2.84217094e-14 Z" style="fill:currentColor"></path>
+                                                <path id="Path1" d="M69.3453773,32.2519224 L101.428699,1.42108547e-14 L138.784583,1.42108547e-14 L138.784199,29.8015838 C137.958931,37.3510206 135.784352,42.5567762 132.260463,45.4188507 C128.736573,48.2809251 112.33867,64.5239941 83.0667527,94.1480575 L56.2750821,94.1480575 L32.8435758,70.5039241 L69.3453773,32.2519224 Z" fill="url(#linearGradient-1)" opacity="0.2"></path>
+                                                <polygon id="Path-2" fill="#000000" opacity="0.049999997" points="69.3922914 32.4202615 32.8435758 70.5039241 54.0490008 16.1851325"></polygon>
+                                                <polygon id="Path-21" fill="#000000" opacity="0.099999994" points="69.3922914 32.4202615 32.8435758 70.5039241 58.3683556 20.7402338"></polygon>
+                                                <polygon id="Path-3" fill="url(#linearGradient-2)" opacity="0.099999994" points="101.428699 0 83.0667527 94.1480575 130.378721 47.0740288"></polygon>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg></span>
+                            <h2 class="brand-text mb-0">CIS Dashboard</h2>
+                        </a></li>
+                    <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i></a></li>
+                </ul>
+            </div>
+            <div class="shadow-bottom"></div>
+            <!-- Horizontal menu content-->
+            <div class="navbar-container main-menu-content" data-menu="menu-container">
+                <!-- include ../../../includes/mixins-->
+                <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
+                    <li class="dropdown nav-item active"><a class="nav-link d-flex align-items-center" href="#"><i data-feather="home"></i><span>Dashboards</span></a></li>
+                    <li class="dropdown nav-item"><a class="nav-link d-flex align-items-center" href="{% url 'dashboard:iampolicies' %}"><i data-feather="home"></i><span>IAM Policy</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- END: Main Menu-->
+
+    <!-- BEGIN: Content-->
+    <div class="app-content content ">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                <!-- Dashboard Ecommerce Starts -->
+                <section id="dashboard-ecommerce">
+                    <div class="row match-height">
+                        <!-- Medal Card -->
+                        <div class="col-xl-4 col-md-6 col-12">
+                            <div class="card card-congratulation-medal">
+                                <div class="card-body">
+                                    <h5>Welcome 🎉 {{name}}!</h5>
+                                    <p class="card-text font-small-3">Wish you a good day</p>
+                                    <img src="../../../static/images/badge.svg" class="congratulation-medal" alt="Medal Pic" />                                
+                                    <h5>Established Connections: {{established_connections}}</h5>
+                                    <a type="button" href="{% url 'dashboard:connections' %}" class="btn btn-primary">All Connections</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Medal Card -->
+
+
+<!-- Modal-->
+
+<div class="modal fade show" id="modal-default" style="display: none;" aria-modal="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Connect with AWS</h4>
+          <button type="button" class="close close-aws-modal" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <form method="post" id="awsform" action="/management/awsconnection/">
+            {% csrf_token %}
+        <label for="id_aws_access_key">Enter AWS Access Key</label> 
+          <input class="form-control" type="text" name="aws_access_key" id="id_aws_access_key" placeholder="AWS Access Key" required>
+          <br>
+          <label for="id_aws_secret_key">Enter AWS Secret Key</label>   
+          <input class="form-control" type="text" name="aws_secret_key" id="id_aws_secret_key" placeholder="AWS Secret Key" required>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default close-aws-modal" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+        </form>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+
+  <!--End Modal-->
+
+                        <!-- Statistics Card -->
+                        <div class="col-xl-8 col-md-6 col-12">
+                            <div class="card card-statistics">
+                                <div class="card-header">
+                                    <h4 class="card-title">Statistics</h4>
+                                    <div class="d-flex align-items-center">
+                                        <p class="card-text font-small-2 mr-25 mb-0">Updated 1 month ago</p>
+                                    </div>
+                                </div>
+                                <div class="card-body statistics-body">
+                                    <div class="row">
+                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
+                                            <div class="media">
+                                                <div class="avatar bg-light-primary mr-2">
+                                                    <div class="avatar-content">
+                                                        <i data-feather="box" class="avatar-icon"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body my-auto">
+                                                    <h4 class="font-weight-bolder mb-0">{{bucket_length}}</h4>
+                                                    <p class="card-text font-small-3 mb-0">S3 Buckets</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
+                                            <div class="media">
+                                                <div class="avatar bg-light-info mr-2">
+                                                    <div class="avatar-content">
+                                                        <i data-feather="user" class="avatar-icon"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body my-auto">
+                                                    <h4 class="font-weight-bolder mb-0">{{iam_length}}</h4>
+                                                    <p class="card-text font-small-3 mb-0">IAM Users</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-sm-0">
+                                            <div class="media">
+                                                <div class="avatar bg-light-danger mr-2">
+                                                    <div class="avatar-content">
+                                                        <i data-feather="box" class="avatar-icon"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body my-auto">
+                                                    <h4 class="font-weight-bolder mb-0">{{ec2_length}}</h4>
+                                                    <p class="card-text font-small-3 mb-0">EC2 Instances</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-6 col-12">
+                                            <div class="media">
+                                                <div class="avatar bg-light-success mr-2">
+                                                    <div class="avatar-content">
+                                                        <i data-feather="box" class="avatar-icon"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body my-auto">
+                                                    <h4 class="font-weight-bolder mb-0">{{db_length}}</h4>
+                                                    <p class="card-text font-small-3 mb-0">DB Instances</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Statistics Card -->
+                    </div>
+
+                    <div class="row match-height">
+                        <div class="col-lg-4 col-12">
+                            <div class="row match-height">
+                                <!-- Bar Chart - Orders -->
+                                <div class="col-lg-6 col-md-3 col-6">
+                                    <div class="card">
+                                        <div class="card-body pb-50">
+                                            <h6>IAM Users Ratio</h6>                                    
+                                            <div id="statistics-order-chart"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/ Bar Chart - Orders -->
+
+                                <!-- Line Chart - Profit -->
+                                <div class="col-lg-6 col-md-3 col-6">
+                                    <div class="card card-tiny-line-stats">
+                                        <div class="card-body pb-50">
+                                            <h6>Projects Ratio with Time</h6>                                        
+                                            <div id="statistics-profit-chart"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/ Line Chart - Profit -->
+
+                                <!-- Earnings Card -->
+                                <div class="col-lg-12 col-md-6 col-12">
+                                    <div class="card earnings-card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <h4 class="card-title mb-1">Storage</h4>
+                                                    <!-- <div class="font-small-2">This Month</div>
+                                                    <h5 class="mb-1">$4055.56</h5>
+                                                    <p class="card-text text-muted font-small-2">
+                                                        <span class="font-weight-bolder">68.2%</span><span> more earnings than last month.</span>
+                                                    </p> -->
+                                                </div>
+                                                <div class="col-6">
+                                                    <div id="earnings-chart"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/ Earnings Card -->
+                            </div>
+                        </div>
+
+                        <!-- Revenue Report Card -->
+                        <div class="col-lg-8 col-12">
+                            <div class="card card-revenue-budget">
+                                <div class="row mx-0">
+                                    <div class="col-md-8 col-12 revenue-report-wrapper">
+                                        <div class="d-sm-flex justify-content-between align-items-center mb-3">
+                                            <h4 class="card-title mb-50 mb-sm-0">EC2 Instance Report</h4>
+                                            <div class="d-flex align-items-center">
+                                                <!-- <div class="d-flex align-items-center mr-2">
+                                                    <span class="bullet bullet-primary font-small-3 mr-50 cursor-pointer"></span>
+                                                    <span>Earning</span>
+                                                </div>
+                                                <div class="d-flex align-items-center ml-75">
+                                                    <span class="bullet bullet-warning font-small-3 mr-50 cursor-pointer"></span>
+                                                    <span>Expense</span>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <div id="revenue-report-chart"></div>
+                                    </div>                    
+                                    <div class="col-md-4 col-12 budget-wrapper">
+                                        {% if connection == True %}
+                                        <button type="button" class="btn btn-primary aws_cross_modal">Click here for AWS cross connection</button>
+                                        {% else %}
+                                        <div id="budget-chart"></div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Revenue Report Card -->
+                    </div>
+
+                    <!-- Modal-->
+
+<div class="modal fade show" id="crossmodal-default" style="display: none;" aria-modal="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Cross Connection with AWS</h4>
+          <button type="button" class="close close-aws-cross-modal" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <form method="post" id="awscrossform" action="/management/awscrossconnection/">
+            {% csrf_token %}
+        <label for="id_aws_account_id">Enter AWS Account ID</label> 
+          <input class="form-control" type="text" name="aws_account_id" id="id_aws_account_id" placeholder="AWS Account ID" required>
+          <br>
+          <label for="id_aws_role_name">Enter AWS Cross Connection Role Name</label>   
+          <input class="form-control" type="text" name="aws_role_name" id="id_aws_role_name" placeholder="Role Name" required>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default close-aws-cross-modal" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+        </form>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+
+  <!--End Modal-->
+
+                    <div class="row match-height">
+                        <!-- Company Table Card -->
+                        <div class="col-lg-8 col-12">
+                            <div class="card card-company-table">
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>BUcket Name</th>
+                                                    <th>Creation Date</th>
+                                                    <!-- <th>Access</th>
+                                                    <th>AWS Region</th> -->
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% if bucket_list is not None %}
+                                                {% for bucket in bucket_list %}
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">                                                
+                                                            <div>
+                                                                <div class="font-weight-bolder">{{bucket.name}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="avatar bg-light-primary mr-1">
+                                                                <div class="avatar-content">
+                                                                    <i data-feather="calendar" class="font-medium-3"></i>
+                                                                </div>
+                                                            </div>
+                                                            <span>{{bucket.creation_date}}</span>
+                                                        </div>
+                                                    </td>
+                                                    <!-- <td class="text-nowrap">
+                                                        <div class="d-flex flex-column">
+                                                            <span class="font-weight-bolder mb-25">{{bucket.access}}</span>                                                        
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-nowrap">
+                                                        <div class="d-flex flex-column">
+                                                            <span class="font-weight-bolder mb-25">{{bucket.region}}</span>                                                        
+                                                        </div>
+                                                    </td>                                              -->
+                                                </tr> 
+                                                {% endfor %}
+                                            {% else %}
+                                            <tr>
+                                                <h3>No data</h3>  
+                                            </tr>
+                                            {% endif %}                                             
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Company Table Card -->
+
+                        <!-- Developer Meetup Card -->
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="card card-developer-meetup">
+                                <div class="meetup-img-wrapper rounded-top text-center">
+                                    <img src="../../../static/images/email.svg" alt="Meeting Pic" height="170" />
+                                </div>
+                                <div class="card-body">
+                                    <div class="meetup-header d-flex align-items-center">
+                                        <div class="meetup-day">
+                                            <h6 class="mb-0">THU</h6>
+                                            <h3 class="mb-0">24</h3>
+                                        </div>
+                                        <div class="my-auto">
+                                            <h4 class="card-title mb-25">Developer Meetup</h4>
+                                            <p class="card-text mb-0">Meet world popular developers</p>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="avatar bg-light-primary rounded mr-1">
+                                            <div class="avatar-content">
+                                                <i data-feather="calendar" class="avatar-icon font-medium-3"></i>
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <h6 class="mb-0">Sat, May 25, 2020</h6>
+                                            <small>10:AM to 6:PM</small>
+                                        </div>
+                                    </div>
+                                    <div class="media mt-2">
+                                        <div class="avatar bg-light-primary rounded mr-1">
+                                            <div class="avatar-content">
+                                                <i data-feather="map-pin" class="avatar-icon font-medium-3"></i>
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <h6 class="mb-0">Central Park</h6>
+                                            <small>Manhattan, New york City</small>
+                                        </div>
+                                    </div>
+                                    <div class="avatar-group">
+                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Billy Hopkins" class="avatar pull-up">
+                                            <img src="../../../static/images/avatar-s-9.jpg" alt="Avatar" width="33" height="33" />
+                                        </div>
+                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Amy Carson" class="avatar pull-up">
+                                            <img src="../../../static/images/avatar-s-9.jpg" alt="Avatar" width="33" height="33" />
+                                        </div>
+                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Brandon Miles" class="avatar pull-up">
+                                            <img src="../../../static/images/avatar-s-9.jpg" alt="Avatar" width="33" height="33" />
+                                        </div>
+                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Daisy Weber" class="avatar pull-up">
+                                            <img src="../../../static/images/avatar-s-9.jpg" alt="Avatar" width="33" height="33" />
+                                        </div>
+                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Jenny Looper" class="avatar pull-up">
+                                            <img src="../../../static/images/avatar-s-9.jpg" alt="Avatar" width="33" height="33" />
+                                        </div>
+                                        <h6 class="align-self-center cursor-pointer ml-50 mb-0">+42</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Developer Meetup Card -->
+
+                        <!-- Browser States Card -->
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="card card-browser-states">
+                                <div class="card-header">
+                                    <div>
+                                        <h4 class="card-title">EC2 Instances</h4>                                    
+                                    </div>
+                                    <!-- <div class="dropdown chart-dropdown">
+                                        <i data-feather="more-vertical" class="font-medium-3 cursor-pointer" data-toggle="dropdown"></i>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
+                                            <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
+                                            <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
+                                        </div>
+                                    </div> -->
+                                </div>
+
+                                {% if ec2_list is not None %}
+                                    {% for ec2 in ec2_list %}
+                                    <div class="card-body">
+                                        <div class="browser-states">
+                                            <div class="media">
+                                                <img src="../../../app-assets/images/icons/google-chrome.png" class="rounded mr-1" height="30" alt="Google Chrome" />
+                                                <h6 class="align-self-center mb-0">{{ec2.name}}</h6>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <div class="font-weight-bold text-body-heading mr-1">{{ec2.status}}</div>
+                                                <div id="browser-state-chart-primary"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                {% else %}
+                                        <p>No Data</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <!--/ Browser States Card -->
+
+                        <!-- Goal Overview Card -->
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="card">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h4 class="card-title">Goal Overview</h4>
+                                    <i data-feather="help-circle" class="font-medium-3 text-muted cursor-pointer"></i>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div id="goal-overview-radial-bar-chart" class="my-2"></div>
+                                    <div class="row border-top text-center mx-0">
+                                        <div class="col-6 border-right py-1">
+                                            <p class="card-text text-muted mb-0">Completed</p>
+                                            <h3 class="font-weight-bolder mb-0">786,617</h3>
+                                        </div>
+                                        <div class="col-6 py-1">
+                                            <p class="card-text text-muted mb-0">In Progress</p>
+                                            <h3 class="font-weight-bolder mb-0">13,561</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Goal Overview Card -->
+
+                        <!-- Transaction Card -->
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="card card-transaction">
+                                <div class="card-header">
+                                    <h4 class="card-title">IAM Users</h4>
+                                    <div class="dropdown chart-dropdown">
+                                        <i data-feather="more-vertical" class="font-medium-3 cursor-pointer" data-toggle="dropdown"></i>
+                                        <!-- <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
+                                            <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
+                                            <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
+                                        </div> -->
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+
+                                    {% if iam_list is not None %}
+
+                                    {% for iam in iam_list %}
+                                    <div class="transaction-item">
+                                        <div class="media">
+                                            <div class="avatar bg-light-primary rounded">
+                                                <div class="avatar-content">
+                                                    <i data-feather="pocket" class="avatar-icon font-medium-3"></i>
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="transaction-title">{{iam.name}}</h6>
+                                                <!-- <small>Starbucks</small> -->
+                                            </div>
+                                        </div>
+                                        <!-- <div class="font-weight-bolder text-danger">- $74</div> -->
+                                    </div>
+                                    {% endfor %}
+
+                                    {% else %}  
+                                        <p>No data</p>
+                                    {% endif %}                           
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Transaction Card -->
+                    </div>
+                </section>
+                <!-- Dashboard Ecommerce ends -->
+
+            </div>
+        </div>
+    </div>
+    <!-- END: Content-->
+
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+    <!-- BEGIN: Footer-->
+    <footer class="footer footer-static footer-light">
+        <p class="clearfix mb-0"><span class="float-md-left d-block d-md-inline-block mt-25">COPYRIGHT &copy; 2021<a class="ml-25" href="https://1.envato.market/pixinvent_portfolio" target="_blank">Pixinvent</a><span class="d-none d-sm-inline-block">, All rights Reserved</span></span><span class="float-md-right d-none d-md-block">Hand-crafted & Made with<i data-feather="heart"></i></span></p>
+    </footer>
+    <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+    <!-- END: Footer-->
+
+
+    <!-- BEGIN: Vendor JS-->
+    <script src="../../../static/js/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="../../../static/js/jquery.sticky.js"></script>
+    <script src="../../../static/js/apexcharts.min.js"></script>
+    <script src="../../../static/js/toastr.min.js"></script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="../../../static/js/app-menu.js"></script>
+    <script src="../../../static/js/app.js"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="../../../static/js/dashboard-ecommerce.js"></script>
+    <!-- END: Page JS-->
+
+    <script>
+        $(window).on('load', function() {
+            if (feather) {
+                feather.replace({
+                    width: 14,
+                    height: 14
+                });
+            }
+        })
+
+        $(document).on('click', '.aws_modal', function(){
+            $("#modal-default").css('display', 'block')
+        });
+
+        $(document).on('click', '.close-aws-modal', function(){
+            $("#modal-default").css('display', 'none')
+        });
+
+        $(document).on('click', '.aws_cross_modal', function(){
+            $("#crossmodal-default").css('display', 'block')
+        });
+
+        $(document).on('click', '.close-aws-cross-modal', function(){
+            $("#crossmodal-default").css('display', 'none')
+        });
+
+    </script>
+</body>
+<!-- END: Body-->
+
+</html>
