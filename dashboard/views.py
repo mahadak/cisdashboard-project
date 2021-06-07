@@ -548,12 +548,11 @@ class IamPolicyGraphicalView(View):
         AWS_TEMP_CREDS["pmapper_version"] = "1.1.1"
         metadata = AWS_TEMP_CREDS
         g1 = Graph(nodes, edges, policy_list, groups_list, metadata)
-        graph_writer.handle_request(g1, "/Users/mahadakbar-invozone/Documents/graph.png", "png")
-        local_image = "/Users/mahadakbar-invozone/Documents/graph.png"
+        graph_writer.handle_request(g1, "/home/ubuntu/Images/graph.png", "png")
+        local_image = "/home/ubuntu/Images/graph.png"
         AWS_CREDS['region_name'] = "us-east-1"
         s3 = boto3.client('s3', **AWS_CREDS)
         s3.upload_file(local_image, 'cisbucket2021', 'graph.png')
         url = "https://cisbucket2021.s3.amazonaws.com/graph.png"
         webbrowser.open(url)
-        # /home/ubuntu/images
         return JsonResponse({"message": True})
