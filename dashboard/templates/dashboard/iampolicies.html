@@ -238,7 +238,8 @@
                 $(".html").append('<div class="alert alert-success" role="alert">Graph is downloaded successfully</div>') 
             },
             error: function (data) {
-                debugger;
+                $(".html").html("")
+                $(".html").append('<div class="alert alert-error" role="alert">'+  data['message']+'</div>')                 
             }
         });
     });

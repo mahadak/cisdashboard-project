@@ -520,39 +520,43 @@ class IamPolicyGraphicalView(View):
             "aws_secret_access_key": secret_key,
             "aws_session_token": session_token
         }
-        iam_client = boto3.client('iam', **AWS_TEMP_CREDS)
-        nodes = []
-        users = iam_client.list_users()
-        for user in users['Users']:
-            policy = iam_client.list_attached_user_policies(UserName=user['UserName'])
-            group = iam_client.list_groups_for_user(UserName=user['UserName'])
-            nodes.append(NodeClass(arn=user['Arn'], is_admin=True, id_value=user['UserId'], active_password=True, has_mfa=False, num_access_keys=639695405324, attached_policies=policy['AttachedPolicies'], group_memberships=group['Groups'], trust_policy=None, instance_profile=None, permissions_boundary=None, tags=None))
-        roles = iam_client.list_roles()
-        for role in roles['Roles']:
-            policy = iam_client.list_attached_role_policies(RoleName=role['RoleName'])
-            nodes.append(NodeClass(arn=role['Arn'], is_admin=True, id_value=role['RoleId'], active_password=True, has_mfa=False, num_access_keys=639695405324, attached_policies=policy['AttachedPolicies'], group_memberships=None, trust_policy=role['AssumeRolePolicyDocument'], instance_profile=None, permissions_boundary=None, tags=None))
-        edges = []
-        for x in range(len(nodes)):
-            for y in range(len(nodes)):
-                edges.append(EdgeClass(source=nodes[x], destination=nodes[y], reason="Connect the iam policies", short_reason="Connectivity"))
-        groups_list = []
-        groups = iam_client.list_groups()
-        for group in groups['Groups']:
-            policy = iam_client.list_attached_group_policies(GroupName=group['GroupName'])
-            groups_list.append(GroupClass(arn=group['Arn'], attached_policies=policy['AttachedPolicies']))
-        policies = iam_client.list_policies()
-        policy_list = []
-        for policy in policies['Policies']:
-            policy_list.append(PolicyClass(arn=policy['Arn'], name=policy['PolicyName'], policy_doc=None))
-        AWS_TEMP_CREDS["account_id"]= useraws.account_number
-        AWS_TEMP_CREDS["pmapper_version"] = "1.1.1"
-        metadata = AWS_TEMP_CREDS
-        g1 = Graph(nodes, edges, policy_list, groups_list, metadata)
-        graph_writer.handle_request(g1, "/home/ubuntu/Images/graph.png", "png")
-        local_image = "/home/ubuntu/Images/graph.png"
-        AWS_CREDS['region_name'] = "us-east-1"
-        s3 = boto3.client('s3', **AWS_CREDS)
-        s3.upload_file(local_image, 'cisbucket2021', 'graph.png')
-        url = "https://cisbucket2021.s3.amazonaws.com/graph.png"
-        webbrowser.open(url)
-        return JsonResponse({"message": True})
+        try:
+            iam_client = boto3.client('iam', **AWS_TEMP_CREDS)
+            nodes = []
+            users = iam_client.list_users()
+            for user in users['Users']:
+                policy = iam_client.list_attached_user_policies(UserName=user['UserName'])
+                group = iam_client.list_groups_for_user(UserName=user['UserName'])
+                nodes.append(NodeClass(arn=user['Arn'], is_admin=True, id_value=user['UserId'], active_password=True, has_mfa=False, num_access_keys=639695405324, attached_policies=policy['AttachedPolicies'], group_memberships=group['Groups'], trust_policy=None, instance_profile=None, permissions_boundary=None, tags=None))
+            roles = iam_client.list_roles()
+            for role in roles['Roles']:
+                policy = iam_client.list_attached_role_policies(RoleName=role['RoleName'])
+                nodes.append(NodeClass(arn=role['Arn'], is_admin=True, id_value=role['RoleId'], active_password=True, has_mfa=False, num_access_keys=639695405324, attached_policies=policy['AttachedPolicies'], group_memberships=None, trust_policy=role['AssumeRolePolicyDocument'], instance_profile=None, permissions_boundary=None, tags=None))
+            edges = []
+            for x in range(len(nodes)):
+                for y in range(len(nodes)):
+                    edges.append(EdgeClass(source=nodes[x], destination=nodes[y], reason="Connect the iam policies", short_reason="Connectivity"))
+            groups_list = []
+            groups = iam_client.list_groups()
+            for group in groups['Groups']:
+                policy = iam_client.list_attached_group_policies(GroupName=group['GroupName'])
+                groups_list.append(GroupClass(arn=group['Arn'], attached_policies=policy['AttachedPolicies']))
+            policies = iam_client.list_policies()
+            policy_list = []
+            for policy in policies['Policies']:
+                policy_list.append(PolicyClass(arn=policy['Arn'], name=policy['PolicyName'], policy_doc=None))
+            AWS_TEMP_CREDS["account_id"]= useraws.account_number
+            AWS_TEMP_CREDS["pmapper_version"] = "1.1.1"
+            metadata = AWS_TEMP_CREDS
+            g1 = Graph(nodes, edges, policy_list, groups_list, metadata)
+            graph_writer.handle_request(g1, "/home/ubuntu/Images/graph.png", "png")
+            local_image = "/home/ubuntu/Images/graph.png"
+            AWS_CREDS['region_name'] = "us-east-1"
+            s3 = boto3.client('s3', **AWS_CREDS)
+            s3.upload_file(local_image, 'cisbucket2021', 'graph.png')
+            url = "https://cisbucket2021.s3.amazonaws.com/graph.png"
+            webbrowser.open(url)
+            context = {"message": True}
+        except Exception as e:
+            context = {'message': str(e)}
+        return JsonResponse(context)
