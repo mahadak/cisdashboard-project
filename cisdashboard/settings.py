@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-yg_rga$3%koamg#@1ss=pv#8j^ej)t=m_hj-binfg1(yh5e@6u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["54.144.233.118"]
 
 
 # Application definition
@@ -99,7 +99,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'cisdashboard',
-        'USER': 'cis',
+        'USER': 'postgres',
         'PASSWORD': '12345',
         'HOST': 'localhost',
         'PORT': '5432',
