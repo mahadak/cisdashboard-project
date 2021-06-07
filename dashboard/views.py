@@ -555,8 +555,7 @@ class IamPolicyGraphicalView(View):
             s3 = boto3.client('s3', **AWS_CREDS)
             s3.upload_file(local_image, 'cisbucket2021', 'graph.png')
             url = "https://cisbucket2021.s3.amazonaws.com/graph.png"
-            webbrowser.open_new_tab(url)
-            context = {"message": True}
+            context = {"message": True, "url": url}
         except Exception as e:
             context = {'message': str(e)}
         return JsonResponse(context)

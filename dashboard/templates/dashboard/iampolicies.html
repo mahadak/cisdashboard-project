@@ -236,6 +236,7 @@
             success: function(data) {
                 $(".html").html("")
                 $(".html").append('<div class="alert alert-success" role="alert">Graph is downloaded successfully</div>') 
+                window.location.href = data.url
             },
             error: function (data) {
                 $(".html").html("")
