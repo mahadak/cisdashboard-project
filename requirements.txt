@@ -10,5 +10,5 @@ psycopg2-binary
 boto
 Pillow
 requests
-prinicpalmapper
+prinicpalmapper==1.1.1
 python-dotenv

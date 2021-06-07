@@ -10,15 +10,15 @@ from django.utils.timezone import now
 from django.views import View
 from django.shortcuts import render
 import boto3, requests
-from PIL import Image
-import sys, os, urllib, json, webbrowser
-from boto.sts import STSConnection
+import webbrowser
 from dashboard.models import User, UserAWS, ScanReports, ServicesReport
-from dotenv import load_dotenv
 from principalmapper.common import Graph, Node, Edge
 from principalmapper.visualizing import graph_writer
 from django.http import HttpResponse
 from wsgiref.util import FileWrapper
+import environ
+env = environ.Env()
+environ.Env.read_env()
 # Create your views here.
 
 class DashboardView(View):
@@ -42,8 +42,8 @@ class CrossSignInAWS(View):
         # Step 1: Prompt user for target account ID and name of role to assume
         
         AWS_CREDS = {
-            "aws_access_key_id": "",
-            "aws_secret_access_key": ""
+            "aws_access_key_id": env("AWS_ACCESS_KEY"),
+            "aws_secret_access_key": env("AWS_SECRET_KEY")
         }        
         
         # Step 2: Connect to AWS STS and then call AssumeRole. This returns 
@@ -81,8 +81,8 @@ class ScanConnectionView(View):
         uuid = request.POST.get('uuid')
         useraws = UserAWS.objects.get(uuid=uuid)
         AWS_CREDS = {
-            "aws_access_key_id": "",
-            "aws_secret_access_key": ""
+            "aws_access_key_id": env("AWS_ACCESS_KEY"),
+            "aws_secret_access_key": env("AWS_SECRET_KEY")
         }        
         
         # Step 2: Connect to AWS STS and then call AssumeRole. This returns 
@@ -498,10 +498,9 @@ class IamPolicyGraphicalView(View):
 
     def get(self, request, uuid=None):
         useraws = UserAWS.objects.get(uuid=uuid)
-        print(useraws)
         AWS_CREDS = {
-            "aws_access_key_id": "",
-            "aws_secret_access_key": ""
+            "aws_access_key_id": env("AWS_ACCESS_KEY"),
+            "aws_secret_access_key": env("AWS_SECRET_KEY")
         }        
         
         # Step 2: Connect to AWS STS and then call AssumeRole. This returns 
