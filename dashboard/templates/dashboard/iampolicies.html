@@ -211,7 +211,7 @@
                                     <td>{{ object.created_at }}</td>
                                     <td>{{ object.is_active }}</td>
                                     <td>AWS</td>
-                                    <td><button class="btn btn-primary representbtn" data-id="{{object.uuid}}">Represent</button></td>
+                                    <td><a class="btn btn-primary representbtn" href="http://54.144.233.118:8000/management/iamrepresent/{{object.uuid}}">Represent</a></td>
                                     </tr>
                             {% endfor %}
                             </tbody>
@@ -224,27 +224,6 @@
     </div> 
 
 <!--End Content-->
-<script>
-    $(document).on('click', ".representbtn", function(){
-        $(".html").html("")
-        $(".html").append('<div class="alert alert-info" role="alert">Connection is Presenting, Please wait</div>') 
-        var uuid = $(this).data('id');
-        $.ajax({
-            url: "../iamrepresent/" + uuid,
-            type:"GET",
-            data : {},
-            success: function(data) {
-                $(".html").html("")
-                $(".html").append('<div class="alert alert-success" role="alert">Graph is downloaded successfully</div>') 
-                window.location.href = data.url
-            },
-            error: function (data) {
-                $(".html").html("")
-                $(".html").append('<div class="alert alert-error" role="alert">'+  data['message']+'</div>')                 
-            }
-        });
-    });
-</script>
 
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>

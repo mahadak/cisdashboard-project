@@ -1,3 +1,4 @@
+import json
 from logging import DEBUG
 from re import template
 import re, datetime
@@ -11,6 +12,8 @@ from django.views import View
 from django.shortcuts import render
 import boto3, requests
 import webbrowser
+from PIL import Image
+import glob
 from dashboard.models import User, UserAWS, ScanReports, ServicesReport
 from principalmapper.common import Graph, Node, Edge
 from principalmapper.visualizing import graph_writer
@@ -265,7 +268,7 @@ class ScanConnectionView(View):
 
         AWS_TEMP_CREDS["region_name"] = "us-east-1"
 
-        # s3 bucket checks
+        # # s3 bucket checks
         json_list_enc = []
         s3_bucket_enc_test = "unknown"
         s3_bucket_ssl_test = "unknown"
@@ -435,7 +438,51 @@ class ScanConnectionView(View):
         
         report_elb_1 = ServicesReport.objects.create(service="ELB Acceess Logs", scan=scan_report, report=[], test_status="unknown")
         report_elb_2 = ServicesReport.objects.create(service="ELB Configuration", scan=scan_report, report=[], test_status="unknown")
+        
+        cloud_enabled_test = "fail"
+        cloud_enabled_test_check = "unknown"
+        cloud_logfile_test_check = "unknown"
+        cloud_policy_test_check = "unknown"
+        json_list_cloud_enabled = []
+        json_list_cloud_logfile = []
+        json_list_cloud_policy = []
+        try:
+            cloud_trial = boto3.client("cloudtrail", **AWS_TEMP_CREDS)
+            trails = cloud_trial.describe_trails()            
+            for trail in trails['trailList']:                
+                if trail['IsMultiRegionTrail'] == True:
+                    trail_status = cloud_trial.get_trail_status(Name=trail['Name'])
+                    if trail_status["IsLogging"] == True:
+                        selectors = cloud_trial.get_event_selectors(TrailName=trail['Name'])
+                        for selector in selectors['EventSelectors']:
+                            if selector["IncludeManagementEvents"] == True and selector["ReadWriteType"] == "All":
+                                cloud_enabled_test = "pass"
+                
+                if trail['LogFileValidationEnabled'] == True:
+                    cloud_logfile_test = "pass"
+                else:
+                    cloud_logfile_test = "fail"         
+                policies = s3_client.get_bucket_policy(Bucket=trail['S3BucketName'])
+                policy = policies['Policy']
+                policy = json.loads(policy)
+                statement = policy['Statement']
+                for pol in statement:
+                    if pol["Effect"] == "Allow" or pol["Principle"] == "*":
+                        cloud_policy_test = "fail"
+                    else:
+                        cloud_policy_test = "pass"
+                    cloud_policy_test_check= "done"
+                cloud_enabled_test_check = "done"
+                cloud_logfile_test_check = "done"
+                json_list_cloud_enabled.append({"service": "cloud_trail_enabled_all_region", "name": trail['Name'], "test": cloud_enabled_test, "severity": "Low"})
+                json_list_cloud_logfile.append({"service": "cloud_trail_log_file_validation", "name": trail['Name'], "test": cloud_logfile_test, "severity": "Medium"})
+                json_list_cloud_policy.append({"service": "cloud_trail_s3_bucket_policy", "name": trail['Name'], "test": cloud_policy_test, "severity": "Low"})
+        except Exception as e:
+            print(e, "exception")
         report_cloudtrial = ServicesReport.objects.create(service="CloudTrial", scan=scan_report, report=[], test_status="unknown")        
+        report_cloudtrial2 = ServicesReport.objects.create(service="CloudTrial Enabled in ALl Region", scan=scan_report, report=json_list_cloud_enabled, test_status=cloud_enabled_test_check)
+        report_cloudtrial3 = ServicesReport.objects.create(service="CloudTrial Log File Validation", scan=scan_report, report=json_list_cloud_logfile, test_status=cloud_logfile_test_check)
+        report_cloudtrial4 = ServicesReport.objects.create(service="CloudTrial S3 Bucket Policy", scan=scan_report, report=json_list_cloud_policy, test_status=cloud_policy_test_check)
 
         return JsonResponse({"message": True})
 
@@ -549,13 +596,10 @@ class IamPolicyGraphicalView(View):
             AWS_TEMP_CREDS["pmapper_version"] = "1.1.1"
             metadata = AWS_TEMP_CREDS
             g1 = Graph(nodes, edges, policy_list, groups_list, metadata)
-            graph_writer.handle_request(g1, "/home/ubuntu/Images/graph.png", "png")
-            local_image = "/home/ubuntu/Images/graph.png"
-            AWS_CREDS['region_name'] = "us-east-1"
-            s3 = boto3.client('s3', **AWS_CREDS)
-            s3.upload_file(local_image, 'cisbucket2021', 'graph.png')
-            url = "https://cisbucket2021.s3.amazonaws.com/graph.png"
-            context = {"message": True, "url": url}
+            graph_writer.handle_request(g1, env("GRAPH_DIR"), "png")
+            file_name = env("GRAPH_DIR")
+            with open(file_name, "rb") as f:                
+                return HttpResponse(f.read(), content_type="image/jpeg")
         except Exception as e:
-            context = {'message': str(e)}
-        return JsonResponse(context)
+            print(e)
+        return redirect("../iampolicies")
